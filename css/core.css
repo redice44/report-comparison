@@ -28,6 +28,7 @@ html, body {
 #legend .icon > span {
   margin: 0 0 0 25px;
   padding: 0;
+  color: #000000;
 }
 
 .file-input {
@@ -39,10 +40,12 @@ html, body {
 
 .added {
   background-color: #4242c3;
+  color: #DDDDDD;
 }
 
 .removed {
   background-color: #a54040;
+  color: #DDDDDD;
 }
 
 .changed {

@@ -1,5 +1,7 @@
 var oldRecords;
+var oldDateRecord;
 var newRecords;
+var newDateRecord;
 var headingFields;
 
 function parseFile(e) {
@@ -15,7 +17,9 @@ function parseFile(e) {
         console.log('course id duplicate', temp);
       }
     } else {
-      records[temp[0]] = temp;
+      if (!Number.isNaN(parseInt(temp[0]))) {
+        records[temp[0]] = temp;
+      }
     }
   });
 
@@ -23,7 +27,7 @@ function parseFile(e) {
 }
 
 function parseRecord(headings) {
-  var fields = headings.split(',');
+  var fields = headings.split('","');
   fields = fields.map(function(str) {
     return str.replace(/\"/g, '');
   });
@@ -36,6 +40,9 @@ function selectedOriginalFile (e) {
 
   fileReader.addEventListener('loadend', function(e) {
     oldRecords = parseFile(e);
+    console.log(oldRecords);
+    oldDateRecord = oldRecords[oldRecords.length-2];
+    oldRecords = oldRecords.slice(0, oldRecords.length-7);
   });
 
   fileReader.readAsText(file);
@@ -47,6 +54,8 @@ function selectedNewFile (e) {
 
   fileReader.addEventListener('loadend', function(e) {
     newRecords = parseFile(e);
+    newDateRecord = newRecords[newRecords.length-2];
+    newRecords = newRecords.slice(0, newRecords.length-7);
   });
 
   fileReader.readAsText(file);
