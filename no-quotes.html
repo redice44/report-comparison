@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<title>Course Report Checker</title>
+<link rel="stylesheet" href="./css/core.css" />
+</head>
+<body>
+<div class="file-input">
+  <div>
+    <p>Original Report</p>
+    <input id="original-file" type="file" accept=".csv" /> 
+  </div>
+  <div>
+    <p>New Report</p>
+    <input id="new-file" type="file" accept=".csv" /> 
+  </div>
+  <div>
+    <p>Compare!</p>
+    <button id="validate">Validate</button>
+  </div>
+</div>
+<div id="results">
+  <div id="legend">
+    <div class="changed icon"><span>Changed</span></div>
+    <div class="added icon"><span>Added</span></div>
+    <div class="removed icon"><span>Removed</span></div>
+  </div>
+</div>
+<script src="./js/reportReader-noQ.js"></script>
+</body>
+</html>
